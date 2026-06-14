@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloatingX - APK 构建完成</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6200EE, #3700B3);
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+            flex: 1;
+        }
+
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: #58a6ff;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .info-item {
+            background: #0d1117;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border: 1px solid #21262d;
+        }
+
+        .info-item .label {
+            font-size: 12px;
+            color: #8b949e;
+            margin-bottom: 4px;
+        }
+
+        .info-item .value {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid #30363d;
+            background: #21262d;
+            color: #e6edf3;
+        }
+
+        .btn:hover {
+            background: #30363d;
+        }
+
+        .btn-primary {
+            background: #6200EE;
+            border-color: #6200EE;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #7c3aed;
+        }
+
+        .btn-success {
+            background: #238636;
+            border-color: #238636;
+            color: #fff;
+        }
+
+        .btn-success:hover {
+            background: #2ea043;
+        }
+
+        .build-status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #0d1117;
+            border-radius: 6px;
+            border: 1px solid #21262d;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #3fb950;
+        }
+
+        .status-dot.pending {
+            background: #d29922;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            border-bottom: 1px solid #21262d;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list .icon {
+            width: 20px;
+            text-align: center;
+            color: #3fb950;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: #8b949e;
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>FloatingX</h1>
+        <p>Android 悬浮窗宠物/模型展示应用 — UI 支架</p>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="build-status">
+                <span class="status-dot"></span>
+                <div>
+                    <strong>构建状态</strong>
+                    <p style="color: #8b949e; font-size: 13px;">APK 构建成功 · v0.1.0-dev</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>项目信息</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="label">版本</div>
+                    <div class="value">0.1.0-dev</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">最低 Android</div>
+                    <div class="value">8.0 (API 26)</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">目标 Android</div>
+                    <div class="value">14 (API 34)</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">架构</div>
+                    <div class="value">Runtime + Editor</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>功能概览</h2>
+            <ul class="feature-list">
+                <li>
+                    <span class="icon">✓</span>
+                    悬浮窗服务 (Overlay + Foreground)
+                </li>
+                <li>
+                    <span class="icon">✓</span>
+                    3D 模型引擎 (PMX / FBX / Assimp)
+                </li>
+                <li>
+                    <span class="icon">✓</span>
+                    2D 动画集成 (Spine Runtime)
+                </li>
+                <li>
+                    <span class="icon">○</span>
+                    VMD 动作加载器 (正在开发)
+                </li>
+                <li>
+                    <span class="icon">○</span>
+                    积木式动作编辑器 (正在开发)
+                </li>
+                <li>
+                    <span class="icon">✓</span>
+                    横屏编辑器 + 快捷键
+                </li>
+                <li>
+                    <span class="icon">✓</span>
+                    崩溃日志系统
+                </li>
+                <li>
+                    <span class="icon">✓</span>
+                    双重密码锁
+                </li>
+                <li>
+                    <span class="icon">✓</span>
+                    JGit 存档版本管理
+                </li>
+                <li>
+                    <span class="icon">✓</span>
+                    Termux:X11 远程渲染支持
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>快速操作</h2>
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary">下载 APK</a>
+                <a href="#" class="btn btn-success">查看构建日志</a>
+                <a href="#" class="btn">GitHub 仓库</a>
+                <a href="#" class="btn">问题反馈</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>开发指南</h2>
+            <p style="color: #8b949e; margin-bottom: 12px;">
+                此页面是 UI 支架，你可以在后续开发中自由修改样式和布局。
+            </p>
+            <p style="color: #8b949e; margin-bottom: 12px;">
+                APK 构建产物保存在 <code style="background: #0d1117; padding: 2px 6px; border-radius: 4px;">github/actions/</code> 目录。
+            </p>
+            <p style="color: #8b949e;">
+                Android 源码位于 <code style="background: #0d1117; padding: 2px 6px; border-radius: 4px;">app/src/main/java/com/xue2026/floatingx/</code>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>
+            <a href="https://github.com/XUE2026/FloatingX" target="_blank">XUE2026/FloatingX</a>
+            &middot; 正在开发第一版，尚未配置许可证
+        </p>
+    </div>
+
+</body>
+</html>
