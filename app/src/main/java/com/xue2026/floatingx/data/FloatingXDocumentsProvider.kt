@@ -1,8 +1,12 @@
 package com.xue2026.floatingx.data
 
-import android.content.ContentProvider, android.content.ContentValues, android.database.Cursor
-import android.net.Uri, android.os.ParcelFileDescriptor
-import java.io.File, java.io.FileNotFoundException
+import android.content.ContentProvider
+import android.content.ContentValues
+import android.database.Cursor
+import android.net.Uri
+import android.os.ParcelFileDescriptor
+import java.io.File
+import java.io.FileNotFoundException
 
 class FloatingXDocumentsProvider : ContentProvider() {
     override fun onCreate() = true
