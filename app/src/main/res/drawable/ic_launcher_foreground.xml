@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Launcher icon foreground — "X" Logo 前景矢量
+  108dp 画布, 居中 64dp 圆形 + 白色十字
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group android:translateX="22" android:translateY="22">
+        <!-- 圆形底 -->
+        <path
+            android:fillColor="#FF6200EE"
+            android:pathData="M32,0L64,0A32,32 0,0 1,96 32L96,64A32,32 0,0 1,64 96L32,96A32,32 0,0 1,0 64L0,32A32,32 0,0 1,32 0z" />
+        <!-- 白色 X 十字 -->
+        <path
+            android:fillColor="#00000000"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeWidth="6"
+            android:pathData="M28,28L68,68M68,28L28,68" />
+    </group>
+</vector>
