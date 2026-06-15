@@ -1,0 +1,30 @@
+name: Build FloatingX APK
+on:
+  push:
+    branches: [ development ]
+  pull_request:
+    branches: [ development ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1800
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: development }
+      - uses: actions/setup-java@v4
+        with: { distribution: 'temurin', java-version: '17' }
+      - uses: gradle/actions/setup-gradle@v3
+      - name: Build
+        run: chmod +x gradlew && ./gradlew assembleDebug --no-daemon
+      - name: Save artifacts
+        run: |
+          mkdir -p github/actions/${{ github.run_id }}
+          cp app/build/outputs/apk/debug/*.apk github/actions/${{ github.run_id }}/ 2>/dev/null || true
+          cp app/build/outputs/apk/release/*.apk github/actions/${{ github.run_id }}/ 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FloatingX-APK-${{ github.run_id }}
+          path: github/actions/${{ github.run_id }}/
+          retention-days: 30

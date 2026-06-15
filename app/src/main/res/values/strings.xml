@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ========== 应用信息 ========== -->
+    <string name="app_name">FloatingX</string>
+    <string name="app_name_debug">FloatingX Dev</string>
+
+    <!-- ========== 通知 ========== -->
+    <string name="floating_channel_name">悬浮窗服务</string>
+    <string name="floating_channel_desc">FloatingX 悬浮窗后台服务</string>
+
+    <!-- ========== 主界面按钮 ========== -->
+    <string name="start_floating">启动悬浮窗</string>
+    <string name="stop_floating">关闭悬浮窗</string>
+    <string name="open_editor">打开编辑器</string>
+    <string name="settings">设置</string>
+    <string name="about">关于</string>
+    <string name="crash_log">查看崩溃日志</string>
+
+    <!-- ========== 通用按钮 ========== -->
+    <string name="btn_ok">确定</string>
+    <string name="btn_cancel">取消</string>
+    <string name="btn_go_settings">去设置</string>
+
+    <!-- ========== 权限对话框 ========== -->
+    <string name="permission_dialog_title">需要悬浮窗权限</string>
+    <string name="permission_dialog_message">请在设置中开启悬浮窗权限以显示宠物</string>
+
+    <!-- ========== 密码锁 ========== -->
+    <string name="lock_title">请输入密码</string>
+    <string name="lock_hint">应用启动密码</string>
+    <string name="lock_error">密码错误</string>
+    <string name="lock_unlock">解锁</string>
+    <string name="resource_lock_title">资源访问密码</string>
+
+    <!-- ========== 崩溃日志 ========== -->
+    <string name="no_crash_log">暂无崩溃日志</string>
+    <string name="clear_logs">清除</string>
+    <string name="logs_cleared">日志已清除</string>
+
+    <!-- ========== 编辑器 ========== -->
+    <string name="editor_title">编辑器</string>
+    <string name="editor_import_model">模型导入功能开发中</string>
+    <string name="editor_import_motion">动作导入功能开发中</string>
+    <string name="editor_save">保存功能开发中</string>
+    <string name="editor_undo">撤销功能开发中</string>
+    <string name="editor_redo">重做功能开发中</string>
+    <string name="editor_preview_hint">3D 预览区域\n导入模型以开始</string>
+    <string name="editor_timeline">时间轴</string>
+
+    <!-- ========== 关于 ========== -->
+    <string name="about_license">正在开发第一版，尚未配置许可证，默认不允许使用源代码。</string>
+    <string name="about_author">作者: XUE2026 (github.com/XUE2026)</string>
+    <string name="about_dependencies">第三方依赖:</string>
+
+    <!-- ========== 设置 ========== -->
+    <string name="security_settings">安全设置</string>
+    <string name="data_management">数据管理</string>
+    <string name="set_app_password">设置应用启动密码</string>
+    <string name="set_resource_password">设置资源访问密码</string>
+    <string name="auto_save">自动保存</string>
+    <string name="settings_back">← 返回</string>
+    <string name="feature_developing">功能开发中</string>
+</resources>
