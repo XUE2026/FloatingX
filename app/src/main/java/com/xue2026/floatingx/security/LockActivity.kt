@@ -84,7 +84,7 @@ class LockActivity : AppCompatActivity() {
                 finish()
             } else {
                 Toast.makeText(this, R.string.lock_error, Toast.LENGTH_SHORT).show()
-                binding.etPassword.text.clear()
+                binding.etPassword.text?.clear()
             }
         }
     }

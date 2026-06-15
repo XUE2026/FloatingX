@@ -80,7 +80,7 @@ class VersionControlManager(private val context: Context) {
     suspend fun getHistory(): List<String> = withContext(Dispatchers.IO) {
         try {
             git?.log()?.setMaxCount(20)?.call()?.map { commit ->
-                "${commit.abbreviateId(8).name()} - ${commit.fullMessage}"
+                "${commit.name.take(8)} - ${commit.fullMessage}"
             }?.toList() ?: emptyList()
         } catch (e: Exception) {
             e.printStackTrace()

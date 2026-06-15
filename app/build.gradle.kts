@@ -48,6 +48,7 @@ android {
     buildFeatures {
         viewBinding = true
         dataBinding = false
+        buildConfig = true
         aidl = false
         renderScript = false
     }
