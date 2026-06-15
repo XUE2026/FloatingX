@@ -6,18 +6,17 @@ plugins {
 
 android {
     namespace = "com.xue2026.floatingx"
-    compileSdk = 34  // Android 14 (GitHub Actions 默认镜像已预装)
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.xue2026.floatingx"
-        minSdk = 26   // Android 8.0
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
-        versionName = "0.0.1"  // preview dev v0.0.1
+        versionName = "0.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // KSP: Room schema 导出路径
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
         }
@@ -48,6 +47,9 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = false
+        aidl = false
+        renderScript = false
     }
 
     // JGit META-INF 冲突排除
@@ -61,33 +63,33 @@ android {
 }
 
 dependencies {
-    // ========== AndroidX Core ==========
-    implementation("androidx.core:core-ktx:1.15.0")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
-    implementation("androidx.lifecycle:lifecycle-service:2.8.7")
-    implementation("androidx.activity:activity-ktx:1.9.3")
+    // AndroidX Core (compileSdk 34 兼容版本)
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-service:2.6.2")
+    implementation("androidx.activity:activity-ktx:1.8.2")
 
-    // ========== UI ==========
-    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
-    implementation("com.google.android.material:material:1.12.0")
+    // UI
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
-    implementation("androidx.webkit:webkit:1.12.1")
+    implementation("androidx.webkit:webkit:1.10.0")
 
-    // ========== Room (本地数据库) ==========
+    // Room Database
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
     ksp("androidx.room:room-compiler:2.6.1")
 
-    // ========== JGit (用户存档版本管理) ==========
+    // JGit
     implementation("org.eclipse.jgit:org.eclipse.jgit:6.9.0.202403050737-r")
 
-    // ========== 序列化 ==========
-    implementation("com.google.code.gson:gson:2.11.0")
+    // Gson
+    implementation("com.google.code.gson:gson:2.10.1")
 
-    // ========== 协程 ==========
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
-    // ========== SAF 文件选择器 ==========
+    // SAF 文件选择器
     implementation("androidx.documentfile:documentfile:1.0.1")
 }
