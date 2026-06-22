@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  FloatingX 悬浮窗布局
+  内嵌 FloatingPetView 渲染测试角色
+  外围 80x80dp 圆角容器，悬浮于系统窗口上层
+-->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="72dp"
-    android:layout_height="72dp"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
     android:background="@drawable/floating_bg">
 
-    <ImageView
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_gravity="center"
-        android:src="@android:drawable/ic_menu_myplaces"
-        android:contentDescription="FloatingX Pet" />
+    <com.xue2026.floatingx.model.FloatingPetView
+        android:id="@+id/petView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center" />
 
 </FrameLayout>

@@ -1,58 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/editorRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <com.google.android.material.appbar.MaterialToolbar android:id="@+id/toolbar"
-        android:layout_width="0dp" android:layout_height="?attr/actionBarSize" android:background="@color/surface"
-        app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+    <!-- 顶部工具栏 -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/surface"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <Button android:id="@+id/btnExit" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="✕" style="@style/Widget.MaterialComponents.Button.TextButton" />
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/editor_title" android:textSize="18sp" android:textColor="@color/text_primary"
-            android:layout_marginStart="12dp" android:layout_gravity="center_vertical" />
+
+        <Button
+            android:id="@+id/btnExit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✕"
+            android:textSize="18sp"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="编辑器"
+            android:textSize="18sp"
+            android:textColor="@color/text_primary"
+            android:layout_marginStart="12dp"
+            android:layout_gravity="center_vertical" />
+
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <FrameLayout android:id="@+id/previewContainer" android:layout_width="0dp" android:layout_height="0dp"
+    <!-- 3D 预览区域 → 内嵌 FloatingPetView 显示测试角色 -->
+    <FrameLayout
+        android:id="@+id/previewContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="#FF0D1117"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" app:layout_constraintBottom_toTopOf="@id/timelinePanel"
-        app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_gravity="center" android:text="@string/editor_preview_hint"
-            android:textSize="16sp" android:textColor="@color/text_secondary" android:gravity="center" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/timelinePanel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.xue2026.floatingx.model.FloatingPetView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:text="内置测试角色 (纳西妲风格)"
+            android:textSize="12sp"
+            android:textColor="#80FFFFFF"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
     </FrameLayout>
 
-    <LinearLayout android:id="@+id/timelinePanel" android:layout_width="0dp" android:layout_height="120dp"
-        android:orientation="vertical" android:background="@color/surface" android:padding="8dp"
+    <!-- 底部时间轴面板 -->
+    <LinearLayout
+        android:id="@+id/timelinePanel"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        android:background="@color/surface"
+        android:padding="8dp"
         app:layout_constraintBottom_toTopOf="@id/toolbarBottom"
-        app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/editor_timeline" android:textSize="12sp" android:textColor="@color/text_secondary" />
-        <HorizontalScrollView android:layout_width="match_parent" android:layout_height="0dp"
-            android:layout_weight="1" android:layout_marginTop="4dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="时间轴"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" />
+
+        </HorizontalScrollView>
+
     </LinearLayout>
 
-    <LinearLayout android:id="@+id/toolbarBottom" android:layout_width="0dp" android:layout_height="56dp"
-        android:orientation="horizontal" android:background="@color/primary_dark" android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+    <!-- 底部操作栏 -->
+    <LinearLayout
+        android:id="@+id/toolbarBottom"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="@color/primary_dark"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <com.google.android.material.button.MaterialButton android:id="@+id/btnImportModel"
-            android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:text="@string/editor_import_model"
-            android:textSize="12sp" android:layout_marginHorizontal="4dp" style="@style/Widget.MaterialComponents.Button" />
-        <com.google.android.material.button.MaterialButton android:id="@+id/btnImportMotion"
-            android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:text="@string/editor_import_motion"
-            android:textSize="12sp" android:layout_marginHorizontal="4dp" style="@style/Widget.MaterialComponents.Button" />
-        <com.google.android.material.button.MaterialButton android:id="@+id/btnUndo"
-            android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:text="@string/editor_undo"
-            android:textSize="12sp" android:layout_marginHorizontal="4dp" style="@style/Widget.MaterialComponents.Button.TextButton" />
-        <com.google.android.material.button.MaterialButton android:id="@+id/btnRedo"
-            android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:text="@string/editor_redo"
-            android:textSize="12sp" android:layout_marginHorizontal="4dp" style="@style/Widget.MaterialComponents.Button.TextButton" />
-        <com.google.android.material.button.MaterialButton android:id="@+id/btnSave"
-            android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1" android:text="@string/editor_save"
-            android:textSize="12sp" android:layout_marginHorizontal="4dp" style="@style/Widget.MaterialComponents.Button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnImportModel"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="模型"
+            android:textSize="12sp"
+            android:layout_marginHorizontal="4dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnImportMotion"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="动作"
+            android:textSize="12sp"
+            android:layout_marginHorizontal="4dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUndo"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="撤销"
+            android:textSize="12sp"
+            android:layout_marginHorizontal="4dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRedo"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="重做"
+            android:textSize="12sp"
+            android:layout_marginHorizontal="4dp"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="保存"
+            android:textSize="12sp"
+            android:layout_marginHorizontal="4dp"
+            style="@style/Widget.MaterialComponents.Button" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
