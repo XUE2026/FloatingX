@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.xue2026.floatingx.BuildConfig
 import com.xue2026.floatingx.R
 import com.xue2026.floatingx.databinding.ActivityMainBinding
 import com.xue2026.floatingx.editor.EditorActivity
