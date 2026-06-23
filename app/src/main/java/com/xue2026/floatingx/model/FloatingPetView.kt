@@ -2,6 +2,7 @@ package com.xue2026.floatingx.model
 
 import android.content.Context
 import android.graphics.Canvas
+import android.util.AttributeSet
 import android.view.View
 import com.xue2026.floatingx.model.BuiltInModel
 import com.xue2026.floatingx.model.ModelRenderer
@@ -17,7 +18,7 @@ import com.xue2026.floatingx.model.ModelRenderer
  *   2. 使用 System.nanoTime() 驱动动画，持续刷新
  *   3. 通过 postInvalidateOnAnimation() 实现 vsync 刷新
  */
-class FloatingPetView(context: Context) : View(context) {
+class FloatingPetView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
 
     private val renderer = ModelRenderer()
     private var startTime = 0L

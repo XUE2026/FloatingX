@@ -1,5 +1,7 @@
 package com.xue2026.floatingx.security
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -13,7 +15,7 @@ import java.io.File
  * 崩溃日志查看器
  *
  * 读取 internal storage/crash_logs/ 下的崩溃日志文件并展示列表。
- * 支持: 查看详情、删除单条、一键清除全部
+ * 支持: 查看详情、复制全文、删除单条、一键清除全部
  */
 class CrashLogActivity : AppCompatActivity() {
 
@@ -53,16 +55,22 @@ class CrashLogActivity : AppCompatActivity() {
         }
     }
 
-    /** 弹窗显示崩溃详情 */
+    /** 弹窗显示崩溃详情 + 复制按钮 */
     private fun showCrashDetail(file: File) {
         val content = file.readText()
         AlertDialog.Builder(this)
             .setTitle(file.name)
             .setMessage(content)
             .setPositiveButton(R.string.btn_ok, null)
-            .setNeutralButton(R.string.clear_logs) { _, _ ->
+            .setNeutralButton(R.string.btn_copy) { _, _ ->
+                val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+                clipboard.setPrimaryClip(ClipData.newPlainText("crash_log", content))
+                Toast.makeText(this, R.string.crash_copied, Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton(R.string.btn_delete) { _, _ ->
                 file.delete()
                 loadCrashLogs()
+                Toast.makeText(this, R.string.log_deleted, Toast.LENGTH_SHORT).show()
             }
             .show()
     }
